@@ -10,5 +10,8 @@ package proyecto_so;
  * @author Gabriel
  */
 public class Control {
-    
+    boolean[] filosofos;
+    public Control(boolean[] fs){
+        filosofos = fs;
+    }
 }
