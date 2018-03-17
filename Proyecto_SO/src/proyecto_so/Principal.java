@@ -31,56 +31,120 @@ public class Principal extends javax.swing.JFrame {
     private void initComponents() {
 
         lblFilosofoA3 = new javax.swing.JLabel();
-        lblFilosofo = new javax.swing.JLabel();
-        lblEstado = new javax.swing.JLabel();
+        jPanel1 = new javax.swing.JPanel();
         lblFilosofoA = new javax.swing.JLabel();
         lblFilosofoB = new javax.swing.JLabel();
         lblFilosofoC = new javax.swing.JLabel();
         lblFilosofoD = new javax.swing.JLabel();
         lblFilosofoE = new javax.swing.JLabel();
-        lblEstadoA = new javax.swing.JLabel();
-        lblEstadoB = new javax.swing.JLabel();
-        lblEstadoC = new javax.swing.JLabel();
-        lblEstadoD = new javax.swing.JLabel();
-        lblEstadoE = new javax.swing.JLabel();
         btnIniciar = new javax.swing.JButton();
+        EstadoB = new javax.swing.JPanel();
+        EstadoA = new javax.swing.JPanel();
+        EstadoE = new javax.swing.JPanel();
+        EstadoC = new javax.swing.JPanel();
+        EstadoD = new javax.swing.JPanel();
 
         lblFilosofoA3.setText("Filosofo A");
 
+        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
+        jPanel1.setLayout(jPanel1Layout);
+        jPanel1Layout.setHorizontalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 100, Short.MAX_VALUE)
+        );
+        jPanel1Layout.setVerticalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 100, Short.MAX_VALUE)
+        );
+
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        lblFilosofo.setFont(new java.awt.Font("Arial Black", 1, 11)); // NOI18N
-        lblFilosofo.setText("Filosofo");
+        lblFilosofoA.setText("A");
 
-        lblEstado.setFont(new java.awt.Font("Arial Black", 1, 11)); // NOI18N
-        lblEstado.setText("Estado");
+        lblFilosofoB.setText("B");
 
-        lblFilosofoA.setText("Filosofo A");
+        lblFilosofoC.setText("C");
 
-        lblFilosofoB.setText("Filosofo B");
+        lblFilosofoD.setText("D");
 
-        lblFilosofoC.setText("Filosofo C");
+        lblFilosofoE.setText("E");
 
-        lblFilosofoD.setText("Filosofo D");
-
-        lblFilosofoE.setText("Filosofo E");
-
-        lblEstadoA.setText("--------");
-
-        lblEstadoB.setText("--------");
-
-        lblEstadoC.setText("--------");
-
-        lblEstadoD.setText("--------");
-
-        lblEstadoE.setText("--------");
-
-        btnIniciar.setText("Iniciar Almuerzo");
+        btnIniciar.setText("Iniciar");
         btnIniciar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnIniciarActionPerformed(evt);
             }
         });
+
+        EstadoB.setBackground(new java.awt.Color(51, 51, 255));
+        EstadoB.setPreferredSize(new java.awt.Dimension(20, 20));
+
+        javax.swing.GroupLayout EstadoBLayout = new javax.swing.GroupLayout(EstadoB);
+        EstadoB.setLayout(EstadoBLayout);
+        EstadoBLayout.setHorizontalGroup(
+            EstadoBLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 20, Short.MAX_VALUE)
+        );
+        EstadoBLayout.setVerticalGroup(
+            EstadoBLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 20, Short.MAX_VALUE)
+        );
+
+        EstadoA.setBackground(new java.awt.Color(51, 51, 255));
+        EstadoA.setPreferredSize(new java.awt.Dimension(20, 20));
+
+        javax.swing.GroupLayout EstadoALayout = new javax.swing.GroupLayout(EstadoA);
+        EstadoA.setLayout(EstadoALayout);
+        EstadoALayout.setHorizontalGroup(
+            EstadoALayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 20, Short.MAX_VALUE)
+        );
+        EstadoALayout.setVerticalGroup(
+            EstadoALayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 20, Short.MAX_VALUE)
+        );
+
+        EstadoE.setBackground(new java.awt.Color(0, 0, 255));
+        EstadoE.setPreferredSize(new java.awt.Dimension(20, 20));
+
+        javax.swing.GroupLayout EstadoELayout = new javax.swing.GroupLayout(EstadoE);
+        EstadoE.setLayout(EstadoELayout);
+        EstadoELayout.setHorizontalGroup(
+            EstadoELayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 20, Short.MAX_VALUE)
+        );
+        EstadoELayout.setVerticalGroup(
+            EstadoELayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 20, Short.MAX_VALUE)
+        );
+
+        EstadoC.setBackground(new java.awt.Color(0, 0, 255));
+        EstadoC.setPreferredSize(new java.awt.Dimension(20, 20));
+
+        javax.swing.GroupLayout EstadoCLayout = new javax.swing.GroupLayout(EstadoC);
+        EstadoC.setLayout(EstadoCLayout);
+        EstadoCLayout.setHorizontalGroup(
+            EstadoCLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 20, Short.MAX_VALUE)
+        );
+        EstadoCLayout.setVerticalGroup(
+            EstadoCLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 20, Short.MAX_VALUE)
+        );
+
+        EstadoD.setBackground(new java.awt.Color(0, 0, 255));
+        EstadoD.setPreferredSize(new java.awt.Dimension(20, 20));
+
+        javax.swing.GroupLayout EstadoDLayout = new javax.swing.GroupLayout(EstadoD);
+        EstadoD.setLayout(EstadoDLayout);
+        EstadoDLayout.setHorizontalGroup(
+            EstadoDLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 20, Short.MAX_VALUE)
+        );
+        EstadoDLayout.setVerticalGroup(
+            EstadoDLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 20, Short.MAX_VALUE)
+        );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -89,63 +153,67 @@ public class Principal extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(87, 87, 87)
+                        .addGap(115, 115, 115)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(lblFilosofo)
-                            .addComponent(lblFilosofoA)
-                            .addComponent(lblFilosofoB))
-                        .addGap(40, 40, 40))
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(lblFilosofoE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addComponent(EstadoE, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGap(92, 92, 92)
+                                        .addComponent(EstadoB, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(lblFilosofoB))
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addGap(23, 23, 23)
+                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addComponent(EstadoD, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addComponent(lblFilosofoD))
+                                        .addGap(43, 43, 43)
+                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addComponent(EstadoC, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addComponent(lblFilosofoC)))))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 69, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(EstadoA, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(lblFilosofoA))
+                                .addGap(63, 63, 63))))
                     .addGroup(layout.createSequentialGroup()
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(lblFilosofoE)
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(lblFilosofoD)
-                                .addComponent(lblFilosofoC)))
-                        .addGap(49, 49, 49)))
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(lblEstadoC)
-                    .addComponent(lblEstadoB)
-                    .addComponent(lblEstadoA)
-                    .addComponent(lblEstado)
-                    .addComponent(lblEstadoD)
-                    .addComponent(lblEstadoE))
-                .addContainerGap(171, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGap(0, 0, Short.MAX_VALUE)
-                .addComponent(btnIniciar)
-                .addGap(49, 49, 49))
+                        .addGap(42, 42, 42)
+                        .addComponent(btnIniciar)))
+                .addContainerGap(133, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(42, 42, 42)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lblFilosofo)
-                    .addComponent(lblEstado))
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lblFilosofoA)
-                    .addComponent(lblEstadoA))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lblFilosofoB)
-                    .addComponent(lblEstadoB))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lblFilosofoC)
-                    .addComponent(lblEstadoC))
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lblFilosofoD)
-                    .addComponent(lblEstadoD))
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lblFilosofoE)
-                    .addComponent(lblEstadoE))
-                .addGap(18, 18, 18)
+                .addGap(45, 45, 45)
                 .addComponent(btnIniciar)
-                .addContainerGap(54, Short.MAX_VALUE))
+                .addGap(33, 33, 33)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addComponent(EstadoE, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(lblFilosofoE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addComponent(lblFilosofoA)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(EstadoA, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(34, 34, 34)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(lblFilosofoB)
+                            .addComponent(EstadoB, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addGap(57, 57, 57)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(EstadoD, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(lblFilosofoD))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(EstadoC, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(lblFilosofoC)))
+                .addContainerGap(85, Short.MAX_VALUE))
         );
 
         pack();
@@ -193,14 +261,13 @@ public class Principal extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JPanel EstadoA;
+    private javax.swing.JPanel EstadoB;
+    private javax.swing.JPanel EstadoC;
+    private javax.swing.JPanel EstadoD;
+    private javax.swing.JPanel EstadoE;
     private javax.swing.JButton btnIniciar;
-    private javax.swing.JLabel lblEstado;
-    private javax.swing.JLabel lblEstadoA;
-    private javax.swing.JLabel lblEstadoB;
-    private javax.swing.JLabel lblEstadoC;
-    private javax.swing.JLabel lblEstadoD;
-    private javax.swing.JLabel lblEstadoE;
-    private javax.swing.JLabel lblFilosofo;
+    private javax.swing.JPanel jPanel1;
     private javax.swing.JLabel lblFilosofoA;
     private javax.swing.JLabel lblFilosofoA3;
     private javax.swing.JLabel lblFilosofoB;
