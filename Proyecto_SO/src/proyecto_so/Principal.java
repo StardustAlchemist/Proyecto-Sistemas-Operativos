@@ -1,5 +1,6 @@
 package proyecto_so;
 
+
 import java.util.LinkedList;
 import java.util.Queue;
 
@@ -38,7 +39,106 @@ public class Principal extends javax.swing.JFrame {
         fD.start();
         fE.start();
         
+
+        int idFilosofo = 1;
+                        String estado = "";
+
+        switch(idFilosofo)
+        {
+            case 0:
+                switch(estado)
+                {
+                    case "Hambriento":
+                        EstadoA.setBackground(Color.RED);
+                        break;
+                        
+                    case "Comiendo":
+                        EstadoA.setBackground(Color.GREEN);
+                        break;
+                        
+                        
+                    case "Pensando":
+                        EstadoA.setBackground(Color.BLUE);
+                        break;
+                }
+                break;
+                
+            case 1:
+                switch(estado)
+                {
+                    case "Hambriento":
+                        EstadoB.setBackground(Color.RED);
+                        break;
+                        
+                    case "Comiendo":
+                        EstadoB.setBackground(Color.GREEN);
+                        break;
+                        
+                        
+                    case "Pensando":
+                        EstadoB.setBackground(Color.BLUE);
+                        break;
+                }
+                break;
+                
+            case 2:
+                switch(estado)
+                {
+                    case "Hambriento":
+                        EstadoC.setBackground(Color.RED);
+                        break;
+                        
+                    case "Comiendo":
+                        EstadoC.setBackground(Color.GREEN);
+                        break;
+                        
+                        
+                    case "Pensando":
+                        EstadoC.setBackground(Color.BLUE);
+                        break;
+                }
+                break;
+                
+            case 3:
+                switch(estado)
+                {
+                    case "Hambriento":
+                        EstadoD.setBackground(Color.RED);
+                        break;
+                        
+                    case "Comiendo":
+                        EstadoD.setBackground(Color.GREEN);
+                        break;
+                        
+                        
+                    case "Pensando":
+                        EstadoD.setBackground(Color.BLUE);
+                        break;
+                }
+                break;
+                
+            case 4:
+                switch(estado)
+                {
+                    case "Hambriento":
+                        EstadoE.setBackground(Color.RED);
+                        break;
+                        
+                    case "Comiendo":
+                        EstadoE.setBackground(Color.GREEN);
+                        break;
+                        
+                        
+                    case "Pensando":
+                        EstadoE.setBackground(Color.BLUE);
+                        break;
+                }
+                break;
+        }
+
     }
+    
+    
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -240,7 +340,10 @@ public class Principal extends javax.swing.JFrame {
 
     private void btnIniciarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnIniciarActionPerformed
       
-      
+      EstadoA.setBackground(Color.RED);
+      EstadoB.setBackground(Color.GREEN);
+      EstadoC.setBackground(Color.BLUE);
+      // Pensando Azul, Comiento Rojo, Hambriento Verde
         
     }//GEN-LAST:event_btnIniciarActionPerformed
 
