@@ -1,5 +1,8 @@
 package proyecto_so;
 
+import java.util.LinkedList;
+import java.util.Queue;
+
 
 /**
  *
@@ -10,6 +13,12 @@ public class Principal extends javax.swing.JFrame {
     /**
      * Creates new form Principal
      */
+    
+    //Constructor de cola de ID's de los filosofos
+    
+    LinkedList cola = new LinkedList();
+    
+
     
     boolean[] filosofos = {true, true, true, true, true};
     
@@ -28,6 +37,7 @@ public class Principal extends javax.swing.JFrame {
         fC.start();
         fD.start();
         fE.start();
+        
     }
 
     /**
