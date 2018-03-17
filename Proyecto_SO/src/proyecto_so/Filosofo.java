@@ -13,18 +13,30 @@ import java.util.*;
  */
 public class Filosofo implements Runnable
 {
-    boolean [] filosofos;
+    boolean[] Amigos;
+    int Id;
+    Control control;
+    public Filosofo(boolean[] amigos, int id, Control ctrl){
+        Amigos = amigos;
+        Id = id;
+        control = ctrl;
+    } 
     
-    public Filosofo(boolean[] amigos, int id)
-    {
-        filosofos = amigos;
+    private eat(){
+        Random r = new Random();
+        int tiempo = r.nextInt(999);
+        int contador = 0;
     }
-    
-  
     
     @Override
     public void run()
     {
-        
+        while(true){
+            if(!control.filosofos[Id]){
+                //Entrar a cola de espera
+            }
+            while(!control.filosofos[Id]){}//wait
+            control.filosofos = Amigos;
+        }
     }
 }
