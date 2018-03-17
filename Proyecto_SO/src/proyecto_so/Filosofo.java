@@ -33,11 +33,11 @@ public class Filosofo implements Runnable
     {
         while(true){
             if(!control.filosofos[Id]){
-                control.cola.push(this);
+                //control.cola.push(this);
                 //control.Espera[0].Amigos[Id]
                 //Entrar a cola de espera
             }
-            while(!control.filosofos[Id] || !control.cola[0].Amigos[Id]){}//wait
+            while(!control.filosofos[Id] /*|| !control.cola[0].Amigos[Id]*/){}//wait
             control.filosofos = Amigos;
             eat();
         }
