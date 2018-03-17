@@ -1,9 +1,5 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package proyecto_so;
+
 
 /**
  *
@@ -14,11 +10,24 @@ public class Principal extends javax.swing.JFrame {
     /**
      * Creates new form Principal
      */
+    
+    boolean[] filosofos = {true, true, true, true, true};
+    
     public Principal() 
     {
         initComponents();
         
+        Thread fA = new Thread(new Filosofo(new boolean[]{false, false, true, true, false}, 0));
+        Thread fB = new Thread(new Filosofo(new boolean[]{false, false, false, true, true}, 1));
+        Thread fC = new Thread(new Filosofo(new boolean[]{true, false, false, false, true}, 2));
+        Thread fD = new Thread(new Filosofo(new boolean[]{true, true, false, false, false}, 3));
+        Thread fE = new Thread(new Filosofo(new boolean[]{false, true, true, false, false}, 4));
         
+        fA.start();
+        fB.start();
+        fC.start();
+        fD.start();
+        fE.start();
     }
 
     /**
