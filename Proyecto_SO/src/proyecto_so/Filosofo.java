@@ -22,7 +22,7 @@ public class Filosofo implements Runnable
         control = ctrl;
     } 
     
-    private eat(){
+    private void eat(){
         Random r = new Random();
         int tiempo = r.nextInt(999);
         int contador = 0;
@@ -33,10 +33,13 @@ public class Filosofo implements Runnable
     {
         while(true){
             if(!control.filosofos[Id]){
+                control.cola.push(this);
+                //control.Espera[0].Amigos[Id]
                 //Entrar a cola de espera
             }
-            while(!control.filosofos[Id]){}//wait
+            while(!control.filosofos[Id] || !control.cola[0].Amigos[Id]){}//wait
             control.filosofos = Amigos;
+            eat();
         }
     }
 }
