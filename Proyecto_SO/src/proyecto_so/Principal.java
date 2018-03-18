@@ -18,124 +18,29 @@ public class Principal extends javax.swing.JFrame {
     
     //Constructor de cola de ID's de los filosofos
     
-    LinkedList cola = new LinkedList();
+    
     
 
     
     boolean[] filosofos = {true, true, true, true, true};
-    
+    Control control = new Control(new boolean[]{true, true, true, true});
+    Thread fA = new Thread(new Filosofo(new boolean[]{false, false, true, true, false}, 0, control));
+    Thread fB = new Thread(new Filosofo(new boolean[]{false, false, false, true, true}, 1, control));
+    Thread fC = new Thread(new Filosofo(new boolean[]{true, false, false, false, true}, 2, control));
+    Thread fD = new Thread(new Filosofo(new boolean[]{true, true, false, false, false}, 3, control));
+    Thread fE = new Thread(new Filosofo(new boolean[]{false, true, true, false, false}, 4, control));
     public Principal() 
     {
         initComponents();
-        Control control = new Control(new boolean[]{true, true, true, true});
-        Thread fA = new Thread(new Filosofo(new boolean[]{false, false, true, true, false}, 0, control));
-        Thread fB = new Thread(new Filosofo(new boolean[]{false, false, false, true, true}, 1, control));
-        Thread fC = new Thread(new Filosofo(new boolean[]{true, false, false, false, true}, 2, control));
-        Thread fD = new Thread(new Filosofo(new boolean[]{true, true, false, false, false}, 3, control));
-        Thread fE = new Thread(new Filosofo(new boolean[]{false, true, true, false, false}, 4, control));
         
-        fA.start();
-        fB.start();
-        fC.start();
-        fD.start();
-        fE.start();
+        EstadoA.setBackground(Color.BLUE);
+        EstadoB.setBackground(Color.BLUE);
+        EstadoC.setBackground(Color.BLUE);
+        EstadoD.setBackground(Color.BLUE);
+        EstadoE.setBackground(Color.BLUE);
         
 
-        int idFilosofo = 1;
-                        String estado = "";
-
-        switch(idFilosofo)
-        {
-            case 0:
-                switch(estado)
-                {
-                    case "Hambriento":
-                        EstadoA.setBackground(Color.RED);
-                        break;
-                        
-                    case "Comiendo":
-                        EstadoA.setBackground(Color.GREEN);
-                        break;
-                        
-                        
-                    case "Pensando":
-                        EstadoA.setBackground(Color.BLUE);
-                        break;
-                }
-                break;
-                
-            case 1:
-                switch(estado)
-                {
-                    case "Hambriento":
-                        EstadoB.setBackground(Color.RED);
-                        break;
-                        
-                    case "Comiendo":
-                        EstadoB.setBackground(Color.GREEN);
-                        break;
-                        
-                        
-                    case "Pensando":
-                        EstadoB.setBackground(Color.BLUE);
-                        break;
-                }
-                break;
-                
-            case 2:
-                switch(estado)
-                {
-                    case "Hambriento":
-                        EstadoC.setBackground(Color.RED);
-                        break;
-                        
-                    case "Comiendo":
-                        EstadoC.setBackground(Color.GREEN);
-                        break;
-                        
-                        
-                    case "Pensando":
-                        EstadoC.setBackground(Color.BLUE);
-                        break;
-                }
-                break;
-                
-            case 3:
-                switch(estado)
-                {
-                    case "Hambriento":
-                        EstadoD.setBackground(Color.RED);
-                        break;
-                        
-                    case "Comiendo":
-                        EstadoD.setBackground(Color.GREEN);
-                        break;
-                        
-                        
-                    case "Pensando":
-                        EstadoD.setBackground(Color.BLUE);
-                        break;
-                }
-                break;
-                
-            case 4:
-                switch(estado)
-                {
-                    case "Hambriento":
-                        EstadoE.setBackground(Color.RED);
-                        break;
-                        
-                    case "Comiendo":
-                        EstadoE.setBackground(Color.GREEN);
-                        break;
-                        
-                        
-                    case "Pensando":
-                        EstadoE.setBackground(Color.BLUE);
-                        break;
-                }
-                break;
-        }
+        
 
     }
     
@@ -340,12 +245,161 @@ public class Principal extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnIniciarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnIniciarActionPerformed
-      
-      EstadoA.setBackground(Color.RED);
-      EstadoB.setBackground(Color.GREEN);
-      EstadoC.setBackground(Color.BLUE);
+        fA.start();
+        fB.start();
+        fC.start();
+        fD.start();
+        fE.start();
+        while(true){
+            switch(control.Estados[0]){
+                case 'h':
+                    EstadoA.setBackground(Color.RED);
+                    break;
+                case 'c':
+                    EstadoA.setBackground(Color.GREEN);
+                    break;
+                case 'p':
+                    EstadoA.setBackground(Color.BLUE);
+                    break;
+            }
+            switch(control.Estados[1]){
+                case 'h':
+                    EstadoB.setBackground(Color.RED);
+                    break;
+                case 'c':
+                    EstadoB.setBackground(Color.GREEN);
+                    break;
+                case 'p':
+                    EstadoB.setBackground(Color.BLUE);
+                    break;
+            }
+            switch(control.Estados[2]){
+                case 'h':
+                    EstadoC.setBackground(Color.RED);
+                    break;
+                case 'c':
+                    EstadoC.setBackground(Color.GREEN);
+                    break;
+                case 'p':
+                    EstadoC.setBackground(Color.BLUE);
+                    break;
+            }
+            switch(control.Estados[3]){
+                case 'h':
+                    EstadoD.setBackground(Color.RED);
+                    break;
+                case 'c':
+                    EstadoD.setBackground(Color.GREEN);
+                    break;
+                case 'p':
+                    EstadoD.setBackground(Color.BLUE);
+                    break;
+            }
+            switch(control.Estados[4]){
+                case 'h':
+                    EstadoE.setBackground(Color.RED);
+                    break;
+                case 'c':
+                    EstadoE.setBackground(Color.GREEN);
+                    break;
+                case 'p':
+                    EstadoE.setBackground(Color.BLUE);
+                    break;
+            }
+        }
       // Pensando Azul, Comiento Rojo, Hambriento Verde
-        
+        /*switch(Id)
+        {
+            case 0:
+                switch(control.Estados[Id])
+                {
+                    case 'h':
+                        EstadoA.setBackground(Color.RED);
+                        break;
+                        
+                    case 'c':
+                        EstadoA.setBackground(Color.GREEN);
+                        break;
+                        
+                        
+                    case 'p':
+                        EstadoA.setBackground(Color.BLUE);
+                        break;
+                }
+                break;
+                
+            case 1:
+                switch(estado)
+                {
+                    case 'h':
+                        EstadoB.setBackground(Color.RED);
+                        break;
+                        
+                    case 'c':
+                        EstadoB.setBackground(Color.GREEN);
+                        break;
+                        
+                        
+                    case 'p':
+                        EstadoB.setBackground(Color.BLUE);
+                        break;
+                }
+                break;
+                
+            case 2:
+                switch(estado)
+                {
+                    case 'h':
+                        EstadoC.setBackground(Color.RED);
+                        break;
+                        
+                    case 'c':
+                        EstadoC.setBackground(Color.GREEN);
+                        break;
+                        
+                        
+                    case 'p':
+                        EstadoC.setBackground(Color.BLUE);
+                        break;
+                }
+                break;
+                
+            case 3:
+                switch(estado)
+                {
+                    case 'h':
+                        EstadoD.setBackground(Color.RED);
+                        break;
+                        
+                    case 'c':
+                        EstadoD.setBackground(Color.GREEN);
+                        break;
+                        
+                        
+                    case 'p':
+                        EstadoD.setBackground(Color.BLUE);
+                        break;
+                }
+                break;
+                
+            case 4:
+                switch(estado)
+                {
+                    case 'h':
+                        EstadoE.setBackground(Color.RED);
+                        break;
+                        
+                    case 'c':
+                        EstadoE.setBackground(Color.GREEN);
+                        break;
+                        
+                        
+                    case 'p':
+                        EstadoE.setBackground(Color.BLUE);
+                        break;
+                }
+                break;
+        }*/
     }//GEN-LAST:event_btnIniciarActionPerformed
 
     /**
