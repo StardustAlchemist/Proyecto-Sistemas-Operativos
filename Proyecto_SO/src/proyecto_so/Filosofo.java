@@ -5,6 +5,7 @@
  */
 package proyecto_so;
 
+import java.awt.Color;
 import java.util.*;
 
 /**
@@ -13,14 +14,21 @@ import java.util.*;
  */
 public class Filosofo implements Runnable
 {
+   
     boolean[] Amigos;
     int Id;
     char Estado;
     Control control;
+    
+    
+    
     public Filosofo(boolean[] amigos, int id, Control ctrl){
         Amigos = amigos;
         Id = id;
         control = ctrl;
+        
+       
+
     } 
     
     private void eat(){
@@ -28,7 +36,7 @@ public class Filosofo implements Runnable
         Random r = new Random();
         int tiempo = r.nextInt(9999);
         for (int i = 0; i < tiempo; i++) {
-            
+           
         }
         
     }
@@ -36,7 +44,14 @@ public class Filosofo implements Runnable
     @Override
     public void run()
     {
+        Principal.EstadoA.setBackground(Color.red);
+        Principal.EstadoB.setBackground(Color.GREEN);
+        Principal.EstadoC.setBackground(Color.blue);
+        Principal.EstadoD.setBackground(Color.GREEN);
+        Principal.EstadoE.setBackground(Color.blue); //Ahora desde aqui podes cambiar los colores.
+        
         while(true){
+
             Estado = 'p';
             if(!control.filosofos[Id]){
                 control.cola.push(this);
@@ -51,6 +66,8 @@ public class Filosofo implements Runnable
                 Amigos[3] && control.cola.get(0).Amigos[3],
                 Amigos[4] && control.cola.get(0).Amigos[4],
             };
+            
+           
             control.filosofos = filCombo;
             eat();
             control.Contador--;

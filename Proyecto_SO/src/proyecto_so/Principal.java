@@ -19,8 +19,10 @@ public class Principal extends javax.swing.JFrame {
     //Constructor de cola de ID's de los filosofos
     
     
-    
+   
 
+     
+     static javax.swing.JPanel Prueba;
     
     boolean[] filosofos = {true, true, true, true, true};
     Control control = new Control(new boolean[]{true, true, true, true});
@@ -33,12 +35,14 @@ public class Principal extends javax.swing.JFrame {
     {
         initComponents();
         
+        
+        
         EstadoA.setBackground(Color.BLUE);
         EstadoB.setBackground(Color.BLUE);
         EstadoC.setBackground(Color.BLUE);
         EstadoD.setBackground(Color.BLUE);
         EstadoE.setBackground(Color.BLUE);
-        
+     
 
         
 
@@ -245,69 +249,16 @@ public class Principal extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnIniciarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnIniciarActionPerformed
+          
+
         fA.start();
         fB.start();
         fC.start();
         fD.start();
         fE.start();
-        while(true){
-            switch(control.Estados[0]){
-                case 'h':
-                    EstadoA.setBackground(Color.RED);
-                    break;
-                case 'c':
-                    EstadoA.setBackground(Color.GREEN);
-                    break;
-                case 'p':
-                    EstadoA.setBackground(Color.BLUE);
-                    break;
-            }
-            switch(control.Estados[1]){
-                case 'h':
-                    EstadoB.setBackground(Color.RED);
-                    break;
-                case 'c':
-                    EstadoB.setBackground(Color.GREEN);
-                    break;
-                case 'p':
-                    EstadoB.setBackground(Color.BLUE);
-                    break;
-            }
-            switch(control.Estados[2]){
-                case 'h':
-                    EstadoC.setBackground(Color.RED);
-                    break;
-                case 'c':
-                    EstadoC.setBackground(Color.GREEN);
-                    break;
-                case 'p':
-                    EstadoC.setBackground(Color.BLUE);
-                    break;
-            }
-            switch(control.Estados[3]){
-                case 'h':
-                    EstadoD.setBackground(Color.RED);
-                    break;
-                case 'c':
-                    EstadoD.setBackground(Color.GREEN);
-                    break;
-                case 'p':
-                    EstadoD.setBackground(Color.BLUE);
-                    break;
-            }
-            switch(control.Estados[4]){
-                case 'h':
-                    EstadoE.setBackground(Color.RED);
-                    break;
-                case 'c':
-                    EstadoE.setBackground(Color.GREEN);
-                    break;
-                case 'p':
-                    EstadoE.setBackground(Color.BLUE);
-                    break;
-            }
-        }
-      // Pensando Azul, Comiento Rojo, Hambriento Verde
+        
+        
+             // Pensando Azul, Comiento Rojo, Hambriento Verde
         /*switch(Id)
         {
             case 0:
@@ -438,11 +389,11 @@ public class Principal extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JPanel EstadoA;
-    private javax.swing.JPanel EstadoB;
-    private javax.swing.JPanel EstadoC;
-    private javax.swing.JPanel EstadoD;
-    private javax.swing.JPanel EstadoE;
+    public static javax.swing.JPanel EstadoA;
+    public static javax.swing.JPanel EstadoB;
+    public  static javax.swing.JPanel EstadoC;
+    public  static javax.swing.JPanel EstadoD;
+    public static javax.swing.JPanel EstadoE;
     private javax.swing.JButton btnIniciar;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JLabel lblFilosofoA;
