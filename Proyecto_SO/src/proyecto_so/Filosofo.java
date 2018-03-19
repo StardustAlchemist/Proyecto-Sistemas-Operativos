@@ -31,9 +31,11 @@ public class Filosofo implements Runnable
     @Override
     public void run()
     {
+        
+        
         while(true){
             if(!control.filosofos[Id]){
-                //control.cola.push(this);
+              //  control.cola.push(this);
                 //control.Espera[0].Amigos[Id]
                 //Entrar a cola de espera
             }
