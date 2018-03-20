@@ -32,22 +32,26 @@ public class Filosofo implements Runnable
     
     private void eat(){
         control.Estados[Id] = 'c';
+        setColores();
         Random r = new Random();
-        int tiempo = r.nextInt(9999);
+        int tiempo = r.nextInt(1800);
         for (int i = 0; i < tiempo; i++) {
 
             System.out.println("... \n");
 
            System.out.println(Id + " eating");
+           control.Estados[Id] = 'c';
+           setColores();
 
         }
         
     }
     
     private void think(){
-        control.Estados[Id] = 'h';
+        control.Estados[Id] = 'p';
+        setColores();
         Random r = new Random();
-        int tiempo = r.nextInt(9999);
+        int tiempo = r.nextInt(1800);
         for (int i = 0; i < tiempo; i++) {
            System.out.println(Id + " thinking");
         }
@@ -61,48 +65,46 @@ public class Filosofo implements Runnable
             case 0:
                  switch(control.Estados[0])
                  {
-                case 'h':
-                    Principal.EstadoA.setBackground(Color.RED);
-                    break;
-                case 'c':
-                    Principal.EstadoA.setBackground(Color.GREEN);
-                    break;
-                case 'p':
-                    Principal.EstadoA.setBackground(Color.BLUE);
-                    break;
-                }
-                
+                    case 'h':
+                        Principal.EstadoA.setBackground(Color.RED);
+                        break;
+                    case 'c':
+                        Principal.EstadoA.setBackground(Color.GREEN);
+                        break;
+                    case 'p':
+                        Principal.EstadoA.setBackground(Color.BLUE);
+                        break;
+                }                
                 break;
                  
-              case 1:
-                 switch(control.Estados[1])
-                 {
-                case 'h':
-                    Principal.EstadoB.setBackground(Color.RED);
+            case 1:
+                switch(control.Estados[1])
+                {
+                    case 'h':
+                        Principal.EstadoB.setBackground(Color.RED);
+                        break;
+                    case 'c':
+                        Principal.EstadoB.setBackground(Color.GREEN);
+                        break;
+                    case 'p':
+                        Principal.EstadoB.setBackground(Color.BLUE);
+                        break;
+                    }                 
+                    break; 
+            case 2:
+                switch(control.Estados[2])
+                {
+                    case 'h':
+                        Principal.EstadoC.setBackground(Color.RED);
+                        break;
+                    case 'c':
+                        Principal.EstadoC.setBackground(Color.GREEN);
+                        break;
+                    case 'p':
+                        Principal.EstadoC.setBackground(Color.BLUE);
+                        break;
+                    }
                     break;
-                case 'c':
-                    Principal.EstadoB.setBackground(Color.GREEN);
-                    break;
-                case 'p':
-                    Principal.EstadoB.setBackground(Color.BLUE);
-                    break;
-                }
-                 
-                break; 
-                 case 2:
-                 switch(control.Estados[2])
-                 {
-                case 'h':
-                    Principal.EstadoC.setBackground(Color.RED);
-                    break;
-                case 'c':
-                    Principal.EstadoC.setBackground(Color.GREEN);
-                    break;
-                case 'p':
-                    Principal.EstadoC.setBackground(Color.BLUE);
-                    break;
-                }
-                break;
                 
                 case 3:
                  switch(control.Estados[3])
@@ -163,22 +165,16 @@ public class Filosofo implements Runnable
 
                 control.cola.add(this);
 
-
+  
         
-        
-        
-        while(true){
-
-            control.Estados[Id] = 'p';
-            setColores();
+        while(true){            
             think();
             control.Estados[Id] = 'h';
             setColores();
             //if(!control.filosofos[Id]){
                 control.cola.add(this);
 
-
-            }
+           //} 
         
             while(!control.filosofos[Id] || !control.cola.isEmpty() && !control.cola.getFirst().Amigos[Id]){ 
                 System.out.println(Id + " waiting"); }//wait
@@ -201,9 +197,19 @@ public class Filosofo implements Runnable
             }
 
             //}
-            while(control.Contador >= 2 || (Id != control.cola.getFirst().Id || !control.filosofos[Id]) && (!control.filosofos[Id] || !control.cola.getFirst().Amigos[Id])){ System.out.println(Id + " waiting"); }//wait
+            while(control.Contador >= 2 || (Id != control.cola.getFirst().Id || !control.filosofos[Id]) && (!control.filosofos[Id] || !control.cola.getFirst().Amigos[Id])){  }//wait
             /////////////////////////////ZONA////////////////////////////////////////////
-            control.filosofos = Amigos;
+            control.Contador++;
+            if(control.Contador == 1){
+                control.filosofos = Amigos;
+            }
+            else if(control.Contador == 2){
+                control.filosofos[0] &= Amigos[0];
+                control.filosofos[1] &= Amigos[1];
+                control.filosofos[2] &= Amigos[2];
+                control.filosofos[3] &= Amigos[3];
+                control.filosofos[4] &= Amigos[4];
+            }            
             if(Id == control.cola.getFirst().Id){
                 control.cola.remove();
             }
@@ -211,8 +217,10 @@ public class Filosofo implements Runnable
 
             control.Estados[Id] = 'c';
             setColores();
+
+
             eat();
-<<<<<<< HEAD
+
 
             if(!control.cola.isEmpty()){
                 control.filosofos = control.cola.remove().Amigos;
@@ -224,14 +232,18 @@ public class Filosofo implements Runnable
             Filosofo head = control.cola.remove();
             if(Id == head.Id){
                 control.filosofos = head.Amigos;
+
             }
             else{
                 control.filosofos = Amigos;
 
             }
-=======
->>>>>>> 549799b6a05c1ec41e31a21de1074aed474f5722
+} //Prueba de while
+
             control.Contador--;
+            if(control.Contador == 0){
+                control.filosofos = new boolean[]{true, true, true, true, true};
+            }
             /////////////////////////////CRITICA////////////////////////////////////////////
         }
     }
