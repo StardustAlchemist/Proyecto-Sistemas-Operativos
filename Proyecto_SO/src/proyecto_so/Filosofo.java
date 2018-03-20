@@ -41,8 +41,8 @@ public class Filosofo implements Runnable
             if(!control.filosofos[Id]){
                 control.cola.push(this);
             }
-            
-            while(!control.filosofos[Id] || (!control.cola.isEmpty() && !control.cola.getFirst().Amigos[Id])){}//wait
+            Estado = 'h';
+            while(!control.filosofos[Id] || !(!control.cola.isEmpty() && !control.cola.getFirst().Amigos[Id])){}//wait
             /////////////////////////////ZONA////////////////////////////////////////////
             boolean[] filCombo = {//Combinacion de las restricciones del que esta comiendo con las de la cabeza de la cola
                 Amigos[0] && control.cola.get(0).Amigos[0],
