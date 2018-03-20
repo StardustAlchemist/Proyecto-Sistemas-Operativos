@@ -155,17 +155,14 @@ public class Filosofo implements Runnable
             //}
             while(control.Contador >= 2 || (Id != control.cola.getFirst().Id || !control.filosofos[Id]) && (!control.filosofos[Id] || !control.cola.getFirst().Amigos[Id])){ System.out.println(Id + " waiting"); }//wait
             /////////////////////////////ZONA////////////////////////////////////////////
+            control.filosofos = Amigos;
+            if(Id == control.cola.getFirst().Id){
+                control.cola.remove();
+            }
             control.Contador++;
             control.Estados[Id] = 'c';
             setColores();
             eat();
-            Filosofo head = control.cola.remove();
-            if(Id == head.Id){
-                control.filosofos = head.Amigos;
-            }
-            else{
-                control.filosofos = Amigos;
-            }
             control.Contador--;
             /////////////////////////////CRITICA////////////////////////////////////////////
         }
