@@ -34,7 +34,7 @@ public class Filosofo implements Runnable
     private void eat(){
         control.Estados[Id] = 'c';
         Random r = new Random();
-        int tiempo = r.nextInt(9999);
+        int tiempo = 5000;
         for (int i = 0; i < tiempo; i++) {
            System.out.println(Id + " eating");
         }
@@ -44,7 +44,7 @@ public class Filosofo implements Runnable
     private void think(){
         control.Estados[Id] = 'h';
         Random r = new Random();
-        int tiempo = r.nextInt(9999);
+        int tiempo = 5000;
         for (int i = 0; i < tiempo; i++) {
            System.out.println(Id + " thinking");
         }
