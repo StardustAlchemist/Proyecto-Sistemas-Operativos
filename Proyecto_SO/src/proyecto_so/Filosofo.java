@@ -203,11 +203,16 @@ public class Filosofo implements Runnable
             //}
             while(control.Contador >= 2 || (Id != control.cola.getFirst().Id || !control.filosofos[Id]) && (!control.filosofos[Id] || !control.cola.getFirst().Amigos[Id])){ System.out.println(Id + " waiting"); }//wait
             /////////////////////////////ZONA////////////////////////////////////////////
+            control.filosofos = Amigos;
+            if(Id == control.cola.getFirst().Id){
+                control.cola.remove();
+            }
             control.Contador++;
 
             control.Estados[Id] = 'c';
             setColores();
             eat();
+<<<<<<< HEAD
 
             if(!control.cola.isEmpty()){
                 control.filosofos = control.cola.remove().Amigos;
@@ -224,6 +229,8 @@ public class Filosofo implements Runnable
                 control.filosofos = Amigos;
 
             }
+=======
+>>>>>>> 549799b6a05c1ec41e31a21de1074aed474f5722
             control.Contador--;
             /////////////////////////////CRITICA////////////////////////////////////////////
         }
