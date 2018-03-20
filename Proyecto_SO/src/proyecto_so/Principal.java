@@ -25,7 +25,7 @@ public class Principal extends javax.swing.JFrame {
      static javax.swing.JPanel Prueba;
     
     boolean[] filosofos = {true, true, true, true, true};
-    Control control = new Control(new boolean[]{true, true, true, true});
+    Control control = new Control(new boolean[]{true, true, true, true, true});
     Thread fA = new Thread(new Filosofo(new boolean[]{false, false, true, true, false}, 0, control));
     Thread fB = new Thread(new Filosofo(new boolean[]{false, false, false, true, true}, 1, control));
     Thread fC = new Thread(new Filosofo(new boolean[]{true, false, false, false, true}, 2, control));

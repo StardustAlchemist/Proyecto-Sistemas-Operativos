@@ -32,11 +32,21 @@ public class Filosofo implements Runnable
     } 
     
     private void eat(){
-        Estado = 'e';
+        control.Estados[Id] = 'c';
         Random r = new Random();
         int tiempo = r.nextInt(9999);
         for (int i = 0; i < tiempo; i++) {
-           
+           System.out.println(Id + " eating");
+        }
+        
+    }
+    
+    private void think(){
+        control.Estados[Id] = 'h';
+        Random r = new Random();
+        int tiempo = r.nextInt(9999);
+        for (int i = 0; i < tiempo; i++) {
+           System.out.println(Id + " thinking");
         }
         
     }
@@ -134,25 +144,41 @@ public class Filosofo implements Runnable
         
         while(true){
 
-            Estado = 'p';
+            control.Estados[Id] = 'p';
+            setColores();
+            think();
+            control.Estados[Id] = 'h';
+            setColores();
             if(!control.filosofos[Id]){
-                control.cola.push(this);
+                control.cola.add(this);
             }
-            Estado = 'h';
-            while(!control.filosofos[Id] || !(!control.cola.isEmpty() && !control.cola.getFirst().Amigos[Id])){}//wait
+            while(!control.filosofos[Id] || !control.cola.isEmpty() && !control.cola.getFirst().Amigos[Id]){ System.out.println(Id + " waiting"); }//wait
             /////////////////////////////ZONA////////////////////////////////////////////
-            boolean[] filCombo = {//Combinacion de las restricciones del que esta comiendo con las de la cabeza de la cola
-                Amigos[0] && control.cola.get(0).Amigos[0],
-                Amigos[1] && control.cola.get(0).Amigos[1],
-                Amigos[2] && control.cola.get(0).Amigos[2],
-                Amigos[3] && control.cola.get(0).Amigos[3],
-                Amigos[4] && control.cola.get(0).Amigos[4],
-            };
-            
-           
+            boolean[] filCombo;
+            filCombo = new boolean[5];
+            if(!control.cola.isEmpty()){
+                //Combinacion de las restricciones del que esta comiendo con las de la cabeza de la cola
+                filCombo[0] = Amigos[0] && control.cola.get(0).Amigos[0];
+                filCombo[1] = Amigos[1] && control.cola.get(0).Amigos[1];
+                filCombo[2] = Amigos[2] && control.cola.get(0).Amigos[2];
+                filCombo[3] = Amigos[3] && control.cola.get(0).Amigos[3];
+                filCombo[4] = Amigos[4] && control.cola.get(0).Amigos[4];
+            }
+            else{
+                filCombo[0] = Amigos[0];
+                filCombo[1] = Amigos[1];
+                filCombo[2] = Amigos[2];
+                filCombo[3] = Amigos[3];
+                filCombo[4] = Amigos[4];
+            }
+            control.Estados[Id] = 'c';
+            setColores();
             control.filosofos = filCombo;
             eat();
-            control.Contador--;
+            if(!control.cola.isEmpty()){
+                control.filosofos = control.cola.remove().Amigos;
+                
+            }
             /////////////////////////////CRITICA////////////////////////////////////////////
         }
     }
