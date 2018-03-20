@@ -140,6 +140,7 @@ public class Filosofo implements Runnable
     }
     
     @Override
+    @SuppressWarnings("empty-statement")
     public void run()
     {
         Principal.EstadoA.setBackground(Color.red);
@@ -173,11 +174,14 @@ public class Filosofo implements Runnable
             think();
             control.Estados[Id] = 'h';
             setColores();
-            if(!control.filosofos[Id]){
+            //if(!control.filosofos[Id]){
                 control.cola.add(this);
 
+
             }
-            while(!control.filosofos[Id] || !control.cola.isEmpty() && !control.cola.getFirst().Amigos[Id]){ System.out.println(Id + " waiting"); }//wait
+        
+            while(!control.filosofos[Id] || !control.cola.isEmpty() && !control.cola.getFirst().Amigos[Id]){ 
+                System.out.println(Id + " waiting"); }//wait
             /////////////////////////////ZONA////////////////////////////////////////////
            
             if(!control.cola.isEmpty()){
@@ -185,7 +189,7 @@ public class Filosofo implements Runnable
                 filCombo[0] = Amigos[0] && control.cola.get(0).Amigos[0];
                 filCombo[1] = Amigos[1] && control.cola.get(0).Amigos[1];
                 filCombo[2] = Amigos[2] && control.cola.get(0).Amigos[2];
-                filCombo[3] = Amigos[3] && control.cola.get(0).Amigos[3];
+
                 filCombo[4] = Amigos[4] && control.cola.get(0).Amigos[4];
             }
             else{
@@ -195,17 +199,32 @@ public class Filosofo implements Runnable
                 filCombo[3] = Amigos[3];
                 filCombo[4] = Amigos[4];
             }
+
+            //}
+            while(control.Contador >= 2 || (Id != control.cola.getFirst().Id || !control.filosofos[Id]) && (!control.filosofos[Id] || !control.cola.getFirst().Amigos[Id])){ System.out.println(Id + " waiting"); }//wait
+            /////////////////////////////ZONA////////////////////////////////////////////
+            control.Contador++;
+
             control.Estados[Id] = 'c';
             setColores();
-            control.filosofos = filCombo;
             eat();
+
             if(!control.cola.isEmpty()){
                 control.filosofos = control.cola.remove().Amigos;
                 //Prueba de regresar a pensar
 //                control.Estados[Id] = 'p';
 //                think();
 //                setColores();
+
+            Filosofo head = control.cola.remove();
+            if(Id == head.Id){
+                control.filosofos = head.Amigos;
             }
+            else{
+                control.filosofos = Amigos;
+
+            }
+            control.Contador--;
             /////////////////////////////CRITICA////////////////////////////////////////////
         }
     }
