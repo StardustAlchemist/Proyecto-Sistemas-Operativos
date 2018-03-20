@@ -12,10 +12,10 @@ import java.util.LinkedList;
  * @author Gabriel
  */
 public class Control {
-    boolean[] filosofos;
-    LinkedList<Filosofo> cola = new LinkedList<>();
-    int Contador = 0;
-    char[] Estados = {'p', 'p', 'p', 'p', 'p'};
+    volatile boolean[] filosofos;
+    volatile LinkedList<Filosofo> cola = new LinkedList<>();
+    volatile int Contador = 0;
+    volatile char[] Estados = {'p', 'p', 'p', 'p', 'p'};
     public Control(boolean[] fs){
         filosofos = fs;
     }
