@@ -87,7 +87,7 @@ public class Filosofo implements Runnable
                  
                 break; 
                  case 2:
-                 switch(control.Estados[0])
+                 switch(control.Estados[2])
                  {
                 case 'h':
                     Principal.EstadoC.setBackground(Color.RED);
