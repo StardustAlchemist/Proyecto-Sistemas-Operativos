@@ -41,14 +41,96 @@ public class Filosofo implements Runnable
         
     }
     
+    private void setColores()
+    {
+        switch(Id)
+        {
+            case 0:
+                 switch(control.Estados[0])
+                 {
+                case 'h':
+                    Principal.EstadoA.setBackground(Color.RED);
+                    break;
+                case 'c':
+                    Principal.EstadoA.setBackground(Color.GREEN);
+                    break;
+                case 'p':
+                    Principal.EstadoA.setBackground(Color.BLUE);
+                    break;
+                }
+                
+                break;
+                 
+              case 1:
+                 switch(control.Estados[1])
+                 {
+                case 'h':
+                    Principal.EstadoB.setBackground(Color.RED);
+                    break;
+                case 'c':
+                    Principal.EstadoB.setBackground(Color.GREEN);
+                    break;
+                case 'p':
+                    Principal.EstadoB.setBackground(Color.BLUE);
+                    break;
+                }
+                 
+                break; 
+                 case 2:
+                 switch(control.Estados[0])
+                 {
+                case 'h':
+                    Principal.EstadoC.setBackground(Color.RED);
+                    break;
+                case 'c':
+                    Principal.EstadoC.setBackground(Color.GREEN);
+                    break;
+                case 'p':
+                    Principal.EstadoC.setBackground(Color.BLUE);
+                    break;
+                }
+                break;
+                
+                case 3:
+                 switch(control.Estados[3])
+                 {
+                case 'h':
+                    Principal.EstadoD.setBackground(Color.RED);
+                    break;
+                case 'c':
+                    Principal.EstadoD.setBackground(Color.GREEN);
+                    break;
+                case 'p':
+                    Principal.EstadoD.setBackground(Color.BLUE);
+                    break;
+                }
+                
+                break;
+                
+                 case 4:
+                 switch(control.Estados[4])
+                 {
+                case 'h':
+                    Principal.EstadoE.setBackground(Color.RED);
+                    break;
+                case 'c':
+                    Principal.EstadoE.setBackground(Color.GREEN);
+                    break;
+                case 'p':
+                    Principal.EstadoE.setBackground(Color.BLUE);
+                    break;
+                }
+                 
+                break;
+        }
+       
+    }
+    
     @Override
     public void run()
     {
-        Principal.EstadoA.setBackground(Color.red);
-        Principal.EstadoB.setBackground(Color.GREEN);
-        Principal.EstadoC.setBackground(Color.blue);
-        Principal.EstadoD.setBackground(Color.GREEN);
-        Principal.EstadoE.setBackground(Color.blue); //Ahora desde aqui podes cambiar los colores.
+        
+        
         
         while(true){
 
