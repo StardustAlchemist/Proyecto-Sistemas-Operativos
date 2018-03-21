@@ -1,9 +1,8 @@
 package proyecto_so;
 
 
+
 import java.awt.Color;
-import java.util.LinkedList;
-import java.util.Queue;
 
 
 /**
@@ -24,7 +23,6 @@ public class Principal extends javax.swing.JFrame {
      
      static javax.swing.JPanel Prueba;
     
-    boolean[] filosofos = {true, true, true, true, true};
     Control control = new Control(new boolean[]{true, true, true, true, true});
     Thread fA = new Thread(new Filosofo(new boolean[]{true, false, true, true, false}, 0, control));
     Thread fB = new Thread(new Filosofo(new boolean[]{false, true, false, true, true}, 1, control));
@@ -256,8 +254,6 @@ public class Principal extends javax.swing.JFrame {
         fC.start();
         fD.start();
         fE.start();
-        
-        
     }//GEN-LAST:event_btnIniciarActionPerformed
 
     /**
@@ -276,22 +272,16 @@ public class Principal extends javax.swing.JFrame {
                     break;
                 }
             }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(Principal.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(Principal.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(Principal.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
+        } catch (ClassNotFoundException | InstantiationException | IllegalAccessException | javax.swing.UnsupportedLookAndFeelException ex) {
             java.util.logging.Logger.getLogger(Principal.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+         //</editor-fold>
+         
         //</editor-fold>
 
         /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new Principal().setVisible(true);
-            }
+        java.awt.EventQueue.invokeLater(() -> {
+            new Principal().setVisible(true);
         });
     }
 

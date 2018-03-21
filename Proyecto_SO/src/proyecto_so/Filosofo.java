@@ -28,29 +28,29 @@ public class Filosofo implements Runnable
         control = ctrl;
         
        
-
     } 
     
     private void eat(){
-        control.Estados[Id] = 'c';
-        setColores();
         Random r = new Random();
-  
         int tiempo = r.nextInt(1800);
-
         for (int i = 0; i < tiempo; i++) {
+            if (control.Contador == 1) {
+                control.filosofos = Amigos;
+            }
+            System.out.println("... \n");
+
            System.out.println(Id + " eating");
-        }
-        
+           control.Estados[Id] = 'c';
+           setColores();
+
+        }        
     }
     
     private void think(){
         control.Estados[Id] = 'p';
         setColores();
         Random r = new Random();
-
         int tiempo = r.nextInt(1800);
-
         for (int i = 0; i < tiempo; i++) {
            System.out.println(Id + " thinking");
         }
@@ -145,37 +145,32 @@ public class Filosofo implements Runnable
     public void run()
     {
         
-        
-        
-        while(true){            
-            think();
-            control.Estados[Id] = 'h';
-            setColores();
-            //if(!control.filosofos[Id]){
-                control.cola.add(this);
-            //}
-            while(control.Contador >= 2 || (Id != control.cola.getFirst().Id || !control.filosofos[Id]) && (!control.filosofos[Id] || !control.cola.getFirst().Amigos[Id])){  }//wait
+        while(true){ 
+            if(control.Estados[Id] != 'h'){
+                think();
+            }
+            if(control.Contador < 2 && control.filosofos[Id]){
             /////////////////////////////ZONA////////////////////////////////////////////
-            control.Contador++;
-            if(control.Contador == 1){
-                control.filosofos = Amigos;
+                control.Contador++;
+                if(control.Contador == 1){
+                    control.filosofos = Amigos;
+                }
+                eat();
+                control.Contador--;
+                if(control.Contador == 0){
+                    control.filosofos = new boolean[]{true, true, true, true, true};
+                }
+                /////////////////////////////CRITICA////////////////////////////////////////////
             }
-            else if(control.Contador == 2){
-                control.filosofos[0] &= Amigos[0];
-                control.filosofos[1] &= Amigos[1];
-                control.filosofos[2] &= Amigos[2];
-                control.filosofos[3] &= Amigos[3];
-                control.filosofos[4] &= Amigos[4];
-            }            
-            if(Id == control.cola.getFirst().Id){
-                control.cola.remove();
+            else{
+                control.Estados[Id] = 'h';
+                setColores();
+                Random r = new Random();
+                int tiempo = r.nextInt(1800);
+                for (int i = 0; i < tiempo; i++) {
+                   System.out.println(Id + " hambre");
+                }
             }
-            eat();
-            control.Contador--;
-            if(control.Contador == 0){
-                control.filosofos = new boolean[]{true, true, true, true, true};
-            }
-            /////////////////////////////CRITICA////////////////////////////////////////////
         }
     }
 }
