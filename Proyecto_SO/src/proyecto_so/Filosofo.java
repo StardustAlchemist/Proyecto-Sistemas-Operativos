@@ -145,25 +145,6 @@ public class Filosofo implements Runnable
     @SuppressWarnings("empty-statement")
     public void run()
     {
-        Principal.EstadoA.setBackground(Color.red);
-        Principal.EstadoB.setBackground(Color.GREEN);
-        Principal.EstadoC.setBackground(Color.blue);
-        Principal.EstadoD.setBackground(Color.GREEN);
-        Principal.EstadoE.setBackground(Color.blue); //Ahora desde aqui podes cambiar los colores.
-
-         boolean[] filCombo;
-         filCombo = new boolean[5];
-            
-        while(true){
-
-            Estado = 'p';
-            if(control.filosofos[Id]){
-
-              //  control.cola.push(this);
-                //control.Espera[0].Amigos[Id]
-                //Entrar a cola de espera
-
-                control.cola.add(this);
 
   
         
@@ -174,79 +155,16 @@ public class Filosofo implements Runnable
             //if(!control.filosofos[Id]){
                 control.cola.add(this);
 
-           //} 
-        
-            while(!control.filosofos[Id] || !control.cola.isEmpty() && !control.cola.getFirst().Amigos[Id]){ 
-                System.out.println(Id + " waiting"); }//wait
-            /////////////////////////////ZONA////////////////////////////////////////////
-           
-            if(!control.cola.isEmpty()){
-                //Combinacion de las restricciones del que esta comiendo con las de la cabeza de la cola
-                filCombo[0] = Amigos[0] && control.cola.get(0).Amigos[0];
-                filCombo[1] = Amigos[1] && control.cola.get(0).Amigos[1];
-                filCombo[2] = Amigos[2] && control.cola.get(0).Amigos[2];
-
-                filCombo[4] = Amigos[4] && control.cola.get(0).Amigos[4];
-            }
-            else{
-                filCombo[0] = Amigos[0];
-                filCombo[1] = Amigos[1];
-                filCombo[2] = Amigos[2];
-                filCombo[3] = Amigos[3];
-                filCombo[4] = Amigos[4];
-            }
-
-            //}
             while(control.Contador >= 2 || (Id != control.cola.getFirst().Id || !control.filosofos[Id]) && (!control.filosofos[Id] || !control.cola.getFirst().Amigos[Id])){  }//wait
             /////////////////////////////ZONA////////////////////////////////////////////
             control.Contador++;
-            if(control.Contador == 1){
-                control.filosofos = Amigos;
-            }
-            else if(control.Contador == 2){
-                control.filosofos[0] &= Amigos[0];
-                control.filosofos[1] &= Amigos[1];
-                control.filosofos[2] &= Amigos[2];
-                control.filosofos[3] &= Amigos[3];
-                control.filosofos[4] &= Amigos[4];
-            }            
+            control.filosofos = Amigos;  
             if(Id == control.cola.getFirst().Id){
                 control.cola.remove();
             }
-            control.Contador++;
-
-            control.Estados[Id] = 'c';
-            setColores();
-
-
             eat();
-
-
-            if(!control.cola.isEmpty()){
-                control.filosofos = control.cola.remove().Amigos;
-                //Prueba de regresar a pensar
-//                control.Estados[Id] = 'p';
-//                think();
-//                setColores();
-
-            Filosofo head = control.cola.remove();
-            if(Id == head.Id){
-                control.filosofos = head.Amigos;
-
-            }
-            else{
-                control.filosofos = Amigos;
-
-            }
-} //Prueba de while
-
             control.Contador--;
-            if(control.Contador == 0){
-                control.filosofos = new boolean[]{true, true, true, true, true};
-            }
-            /////////////////////////////CRITICA////////////////////////////////////////////
         }
-    }
-}
+            /////////////////////////////CRITICA////////////////////////////////////////////
     }
 }
