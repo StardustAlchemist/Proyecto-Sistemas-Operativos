@@ -154,15 +154,29 @@ public class Filosofo implements Runnable
             setColores();
             //if(!control.filosofos[Id]){
                 control.cola.add(this);
+                //Prueba sleep
+                for (int i = 0; i < 1000; i++) {
+                    System.out.println("...");
+                }
 
-            while(control.Contador >= 2 || (Id != control.cola.getFirst().Id || !control.filosofos[Id]) && (!control.filosofos[Id] || !control.cola.getFirst().Amigos[Id])){  }//wait
+            //while(control.Contador >= 2 || (Id != control.cola.getFirst().Id || !control.filosofos[Id]) && (!control.filosofos[Id] || !control.cola.getFirst().Amigos[Id])){  }//wait
             /////////////////////////////ZONA////////////////////////////////////////////
             control.Contador++;
+            control.Contador++;
+//            for (int i = 0; i < 50000; i++) {
+//                    System.out.println("...");
+//                }
+            
             control.filosofos = Amigos;  
             if(Id == control.cola.getFirst().Id){
                 control.cola.remove();
+                //Prueba sleep
+                 for (int i = 0; i < 10000; i++) {
+                    System.out.println("...");
+                }
             }
             eat();
+            control.Contador--;
             control.Contador--;
         }
             /////////////////////////////CRITICA////////////////////////////////////////////
