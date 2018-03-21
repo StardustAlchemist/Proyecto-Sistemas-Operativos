@@ -1,9 +1,6 @@
 package proyecto_so;
 
 
-import java.awt.Color;
-import java.util.LinkedList;
-import java.util.Queue;
 
 import java.awt.Color;
 
@@ -26,7 +23,6 @@ public class Principal extends javax.swing.JFrame {
      
      static javax.swing.JPanel Prueba;
     
-    boolean[] filosofos = {true, true, true, true, true};
     Control control = new Control(new boolean[]{true, true, true, true, true});
     Thread fA = new Thread(new Filosofo(new boolean[]{true, false, true, true, false}, 0, control));
     Thread fB = new Thread(new Filosofo(new boolean[]{false, true, false, true, true}, 1, control));
@@ -258,101 +254,6 @@ public class Principal extends javax.swing.JFrame {
         fC.start();
         fD.start();
         fE.start();
-        
-        
-             // Pensando Azul, Comiento Rojo, Hambriento Verde
-        /*switch(Id)
-        {
-            case 0:
-                switch(control.Estados[Id])
-                {
-                    case 'h':
-                        EstadoA.setBackground(Color.RED);
-                        break;
-                        
-                    case 'c':
-                        EstadoA.setBackground(Color.GREEN);
-                        break;
-                        
-                        
-                    case 'p':
-                        EstadoA.setBackground(Color.BLUE);
-                        break;
-                }
-                break;
-                
-            case 1:
-                switch(estado)
-                {
-                    case 'h':
-                        EstadoB.setBackground(Color.RED);
-                        break;
-                        
-                    case 'c':
-                        EstadoB.setBackground(Color.GREEN);
-                        break;
-                        
-                        
-                    case 'p':
-                        EstadoB.setBackground(Color.BLUE);
-                        break;
-                }
-                break;
-                
-            case 2:
-                switch(estado)
-                {
-                    case 'h':
-                        EstadoC.setBackground(Color.RED);
-                        break;
-                        
-                    case 'c':
-                        EstadoC.setBackground(Color.GREEN);
-                        break;
-                        
-                        
-                    case 'p':
-                        EstadoC.setBackground(Color.BLUE);
-                        break;
-                }
-                break;
-                
-            case 3:
-                switch(estado)
-                {
-                    case 'h':
-                        EstadoD.setBackground(Color.RED);
-                        break;
-                        
-                    case 'c':
-                        EstadoD.setBackground(Color.GREEN);
-                        break;
-                        
-                        
-                    case 'p':
-                        EstadoD.setBackground(Color.BLUE);
-                        break;
-                }
-                break;
-                
-            case 4:
-                switch(estado)
-                {
-                    case 'h':
-                        EstadoE.setBackground(Color.RED);
-                        break;
-                        
-                    case 'c':
-                        EstadoE.setBackground(Color.GREEN);
-                        break;
-                        
-                        
-                    case 'p':
-                        EstadoE.setBackground(Color.BLUE);
-                        break;
-                }
-                break;
-        }*/
     }//GEN-LAST:event_btnIniciarActionPerformed
 
     /**
@@ -371,22 +272,16 @@ public class Principal extends javax.swing.JFrame {
                     break;
                 }
             }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(Principal.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(Principal.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(Principal.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
+        } catch (ClassNotFoundException | InstantiationException | IllegalAccessException | javax.swing.UnsupportedLookAndFeelException ex) {
             java.util.logging.Logger.getLogger(Principal.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+         //</editor-fold>
+         
         //</editor-fold>
 
         /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new Principal().setVisible(true);
-            }
+        java.awt.EventQueue.invokeLater(() -> {
+            new Principal().setVisible(true);
         });
     }
 

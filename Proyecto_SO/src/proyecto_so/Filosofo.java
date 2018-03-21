@@ -36,7 +36,9 @@ public class Filosofo implements Runnable
         Random r = new Random();
         int tiempo = r.nextInt(1800);
         for (int i = 0; i < tiempo; i++) {
-
+            if (control.Contador == 1) {
+                control.filosofos = Amigos;
+            }
             System.out.println("... \n");
 
            System.out.println(Id + " eating");
@@ -145,25 +147,33 @@ public class Filosofo implements Runnable
     @SuppressWarnings("empty-statement")
     public void run()
     {
-
-  
         
-        while(true){            
-            think();
-            control.Estados[Id] = 'h';
-            setColores();
-            //if(!control.filosofos[Id]){
-                control.cola.add(this);
-
-            while(control.Contador >= 2 || (Id != control.cola.getFirst().Id || !control.filosofos[Id]) && (!control.filosofos[Id] || !control.cola.getFirst().Amigos[Id])){  }//wait
-            /////////////////////////////ZONA////////////////////////////////////////////
-            control.Contador++;
-            control.filosofos = Amigos;  
-            if(Id == control.cola.getFirst().Id){
-                control.cola.remove();
+        while(true){ 
+            if(control.Estados[Id] != 'h'){
+                think();
             }
-            eat();
-            control.Contador--;
+            if(control.Contador < 2 && control.filosofos[Id]){ 
+                //wait
+            /////////////////////////////ZONA////////////////////////////////////////////
+                control.Contador++;
+                if (control.Contador == 1) {
+                    control.filosofos = Amigos;
+                }
+                eat();
+                control.Contador--;
+                if(control.Contador == 0){
+                    control.filosofos = new boolean[]{true, true, true, true, true};
+                }
+            }
+            else{
+                control.Estados[Id] = 'h';
+                setColores();
+                Random r = new Random();
+                int tiempo = r.nextInt(1800);
+                for (int i = 0; i < tiempo; i++) {
+                   System.out.println(Id + " hambre");
+                }
+            }
         }
             /////////////////////////////CRITICA////////////////////////////////////////////
     }
